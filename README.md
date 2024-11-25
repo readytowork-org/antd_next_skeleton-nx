@@ -8,7 +8,6 @@
 
    ```bash
    yarn bootstrap
-
    ```
 
 2. initialize git hook with husky
@@ -17,16 +16,22 @@
    ```
 3. To create a new nextJS application
    ```bash
-     nx generate @nx/next:application --name=test-project --no-interactive
+   npx nx g @nx/next:application web --directory=apps --projectNameAndRootFormat=as-provided
+   #OR if nx globally installed
+   nx g @nx/next:application web --directory=apps --projectNameAndRootFormat=as-provided
    ```
 4. To create a component
    ```bash
-    nx g @nx/next:component <component name> --directory shared/src/components/<component name>
+    npx nx g @nx/next:component cad --directory shared/src/components/  --projectNameAndRootFormat=as-provided
    ```
    **Note: 📖 If you want to remove apps/projects**
 
 ```bash
+  1. npx nx g remove <app-name>-e2e
+  # OR
    nx g remove <app-name>-e2e
+  2. npx nx g remove <app-name>
+   # OR
    nx g remove <app-name>
 ```
 
@@ -153,7 +158,7 @@ This template features all the latest tools and web development best practices. 
 | Name                                          | Description                                     | status |
 | --------------------------------------------- | ----------------------------------------------- | ------ |
 | [Typescript](https://www.typescriptlang.org/) | TypeScript is JavaScript with syntax for types. | ✅     |
-| [react-use](https://www.typescriptlang.org/)  | TypeScript is JavaScript with syntax for types. | ⏰     |
+| [react-use](https://www.npmjs.com/package/react-use)  | Collection of essential React Hooks | ⏰     |
 
 #### ❄️ Internationalization
 

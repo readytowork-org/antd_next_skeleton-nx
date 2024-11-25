@@ -20,8 +20,8 @@ export const themeConfig: ThemeConfig = {
   },
   components: {
     Breadcrumb: {
-      // linkColor: 'rgba(0,0,0,.8)',
-      // itemColor: 'rgba(0,0,0,.8)',
+      linkColor: 'rgba(0,0,0,.8)',
+      itemColor: 'rgba(0,0,0,.8)'
     },
     Button: {
       colorLink: COLOR['500'],

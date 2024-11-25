@@ -6,11 +6,43 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
+      "executor": "@nrwl/next:build",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
       "options": {
+        "nextConfig": "apps/consumer/next.config.js",
+        "root": "apps/consumer",
         "outputPath": "dist/apps/consumer/"
+      },
+      "configurations": {
+        "production": {
+          "optimizations": true,
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractCss": false,
+          "namedChunks": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "consumer:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "dev": false,
+          "buildTarget": "consumer:build:production"
+        },
+        "development": {
+          "dev": true,
+          "buildTarget": "consumer:build:development"
+        }
       }
     },
     "test": {

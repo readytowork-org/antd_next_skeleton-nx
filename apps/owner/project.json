@@ -6,11 +6,44 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@nx/next:build",
+      "executor": "@nrwl/next:build",
       "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
       "options": {
+        "nextConfig": "apps/owner/next.config.js",
+        "root": "apps/owner",
         "outputPath": "dist/apps/owner/"
+      },
+      "configurations": {
+        "production": {
+          "optimizations": true,
+          "sourceMap": false,
+          "extractCss": true,
+          "namedChunks": false
+        },
+        "development": {
+          "optimization": false,
+          "sourceMap": true,
+          "extractCss": false,
+          "namedChunks": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "options": {
+        "buildTarget": "owner:build",
+        "dev": true
+      },
+      "configurations": {
+        "production": {
+          "dev": false,
+          "buildTarget": "owner:build:production"
+        },
+        "development": {
+          "dev": true,
+          "buildTarget": "owner:build:development",
+          "port": 3000
+        }
       }
     },
     "test": {
