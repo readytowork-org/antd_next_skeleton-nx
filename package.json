@@ -10,7 +10,8 @@
     "apps:consumer": "nx run consumer:dev",
     "apps:build:consumer": "nx run consumer:build:production",
     "apps:typecheck:consumer": "nx affected --target=typecheck",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "swagger-gen": "node --env-file .env src/services/codegen.mjs && yarn run format"
   },
   "private": true,
   "dependencies": {
@@ -27,10 +28,9 @@
     "axios": "^1.7.7",
     "dayjs": "^1.11.10",
     "firebase": "^10.12.3",
-    "i18next": "^23.15.1",
-    "i18next-browser-languagedetector": "^8.0.0",
     "next": "14.2.3",
     "next-auth": "5.0.0-beta.19",
+    "next-intl": "^3.26.3",
     "nextjs-toploader": "^1.6.4",
     "react": "18.3.1",
     "react-countup": "^6.5.3",
@@ -40,6 +40,7 @@
     "react-is": "18.3.1",
     "react-responsive": "^10.0.0",
     "styled-components": "^6.1.1",
+    "swagger-typescript-api": "^13.0.23",
     "tslib": "^2.6.2",
     "zod": "^3.22.4",
     "zustand": "^4.4.6"
